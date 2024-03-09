@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 9143042246855458034}
   - component: {fileID: 3670713897859610046}
   - component: {fileID: 7523721403445183442}
+  - component: {fileID: 2350519228341873584}
   m_Layer: 0
   m_Name: Torch
   m_TagString: Untagged
@@ -28,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 1519662994856985689}
   serializedVersion: 2
   m_LocalRotation: {x: 0.5, y: 0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.633, z: 0}
   m_LocalScale: {x: 0.3, y: 0.5, z: 0.3}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -108,6 +109,21 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2350519228341873584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1519662994856985689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abe9846217b964d4c8a3e99cfc0b4b82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _light: {fileID: 4744842384344591573}
+  avatar: {fileID: 0}
+  rotationValueTest: 0
 --- !u!1 &4827580736926964912
 GameObject:
   m_ObjectHideFlags: 0
@@ -134,13 +150,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4827580736926964912}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.5, y: 0.5, z: -0.5, w: 0.5}
-  m_LocalPosition: {x: -0, y: -0.737, z: -0}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 2, y: 0, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2363016333357850600}
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: -90}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!108 &4744842384344591573
 Light:
   m_ObjectHideFlags: 0
@@ -154,9 +170,9 @@ Light:
   m_Shape: 0
   m_Color: {r: 1, g: 0.84842384, b: 0.7028302, a: 1}
   m_Intensity: 1
-  m_Range: 3.5
-  m_SpotAngle: 25.424307
-  m_InnerSpotAngle: 17.417261
+  m_Range: 10
+  m_SpotAngle: 45
+  m_InnerSpotAngle: 45
   m_CookieSize: 10
   m_Shadows:
     m_Type: 0

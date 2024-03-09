@@ -1,0 +1,159 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7199099543990447128
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3501156084194430590}
+  - component: {fileID: 6776341884100895295}
+  - component: {fileID: 6056900520815108208}
+  - component: {fileID: 3710751649053371227}
+  - component: {fileID: 5708285702923207444}
+  - component: {fileID: 374468200858528116}
+  - component: {fileID: -7059633020534927904}
+  - component: {fileID: 1042134205007076448}
+  m_Layer: 0
+  m_Name: PlayerJumping
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3501156084194430590
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7199099543990447128}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6776341884100895295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7199099543990447128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53aebeae624f4f83ab4ac0f0ff23c9f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  active: 1
+  movementSpeed: 4
+--- !u!114 &6056900520815108208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7199099543990447128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edf86f4f21f645108b5d890f1f8a0ca8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  active: 1
+  rotationSmoothTime: 0.075
+--- !u!114 &3710751649053371227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7199099543990447128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd25be722e4f475da826c6e798722a32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  active: 1
+  voidBoundaries: -100
+  groundLayers:
+    serializedVersion: 2
+    m_Bits: 0
+--- !u!114 &5708285702923207444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7199099543990447128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7905a1099c7443b1a1200a9dea6558d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  active: 1
+  onPlayerInteractionStart: {fileID: 11400000, guid: 5be33fff458bb493f94ca8d98c15c5e5,
+    type: 2}
+  onPlayerInteractionEnd: {fileID: 11400000, guid: d7afd70ff2ac843fcace15a63c417525,
+    type: 2}
+--- !u!114 &374468200858528116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7199099543990447128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f2dea6cfefe4c10bf22e36d45e67811, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  active: 1
+  OnPlayerPressEvent: {fileID: 11400000, guid: b40219438e7b84732986d58227226039, type: 2}
+  OnPlayerHoldEvent: {fileID: 11400000, guid: f46c8a7be8fdf4b2eb1ce41f59b4f0be, type: 2}
+--- !u!114 &-7059633020534927904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7199099543990447128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1058d4309ce142cb8d1e59be694a8778, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  active: 1
+  gravity: -9.81
+  lowJumpMultiplier: 1.75
+  fallMultiplier: 1.5
+  jumpHeight: 2
+  groundLayers:
+    serializedVersion: 2
+    m_Bits: 9
+  overrideWith: {fileID: 1042134205007076448}
+--- !u!95 &1042134205007076448
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7199099543990447128}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: eb040c619a9a24065aa7adcd4d9dcdd6, type: 3}
+  m_Controller: {fileID: 9100000, guid: a6b694a293b764bf893f42be1366eb60, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

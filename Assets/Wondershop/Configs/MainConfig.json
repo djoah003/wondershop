@@ -1,0 +1,100 @@
+{
+  "scenePath": "Assets/Wondershop/Scenes/MainScene.unity",
+  "setup": {
+    "scenePath": "Assets/Wondershop/Scenes/Games/LOB/LOB.unity",
+    "stages": [
+      {
+        "scenePath": "Assets/Wondershop/Scenes/Games/LOB/LOB_game.unity",
+        "numberOfRounds": 1,
+        "states": [
+          {
+            "scenePath": "Assets/Wondershop/Scenes/Games/LOB/LOB_gameplay.unity"
+          }
+        ]
+      }
+    ]
+  },
+  "games": [
+    {
+      "scenePath": "Assets/Wondershop/Scenes/Games/MOZ/MOZ.unity",
+      "stages": [
+        {
+          "scenePath": "Assets/_Developers/Tanja/MOZ_Updates/Scenes/MOZ_pre_game.unity",
+          "numberOfRounds": 1,
+          "states": [
+            {
+              "scenePath": "Assets/_Developers/Tanja/MOZ_Updates/Scenes/MOZ_splash_screen.unity"
+            }
+          ]
+        },
+        {
+          "scenePath": "Assets/Wondershop/Scenes/Games/MOZ/MOZ_game.unity",
+          "numberOfRounds": 4,
+          "states": [
+            {
+              "scenePath": "Assets/Wondershop/Scenes/Games/MOZ/MOZ_gameplay.unity"
+            }
+          ]
+        },
+        {
+          "scenePath": "Assets/_Developers/Tanja/MOZ_Updates/Scenes/MOZ_Post_game.unity",
+          "numberOfRounds": 1,
+          "states": [
+            {
+              "scenePath": "Assets/_Developers/Tanja/PlayerHighlight/Scenes/PlayerHighlights.unity"
+            },
+            {
+              "scenePath": "Assets/_Developers/Tanja/MOZ_Updates/Scenes/MOZ_return_to_lobby.unity"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scenePath": "Assets/_Developers/Tanja/RUN/Scenes/RUN.unity",
+      "stages": [
+        {
+          "scenePath": "Assets/_Developers/Tanja/RUN/Scenes/RUN_pre_game.unity",
+          "numberOfRounds": 1,
+          "states": [
+            {
+              "scenePath": "Assets/_Developers/Tanja/RUN/Scenes/RUN_splash_screen.unity"
+            }
+          ]
+        },
+        {
+          "scenePath": "Assets/_Developers/Tanja/RUN/Scenes/RUN_game.unity",
+          "numberOfRounds": 3,
+          "states": [
+            {
+              "scenePath": "Assets/_Developers/Tanja/RUN/Scenes/RUN_gameplay.unity"
+            }
+          ]
+        },
+        {
+          "scenePath": "Assets/_Developers/Tanja/RUN/Scenes/RUN_post_game.unity",
+          "numberOfRounds": 1,
+          "states": [
+            {
+              "scenePath": "Assets/_Developers/Tanja/RUN/Scenes/RUN_return_to_lobby.unity"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scenePath": "Assets/Wondershop/Scenes/Games/FTB/FTB.unity",
+      "stages": [
+        {
+          "scenePath": "Assets/Wondershop/Scenes/Games/FTB/FTB_game.unity",
+          "numberOfRounds": 5,
+          "states": [
+            {
+              "scenePath": "Assets/Wondershop/Scenes/Games/FTB/FTB_gameplay.unity"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

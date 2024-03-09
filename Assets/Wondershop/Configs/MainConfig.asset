@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0c791e6da50e4d9fb898fa5b8a911d7, type: 3}
+  m_Name: MainConfig
+  m_EditorClassIdentifier: 
+  scenePath: Assets/Wondershop/Scenes/MainScene.unity
+  setup: {fileID: 11400000, guid: 53efc3af0f67f4d06ac79b2f618919c0, type: 2}
+  games:
+  - {fileID: 11400000, guid: b3ae83779b4ad405d8ab4458c70ba1b2, type: 2}
+  - {fileID: 11400000, guid: 2ebca9cb220f341c6a9594ceb8969792, type: 2}
+  - {fileID: 11400000, guid: 4232e7c327e214f99b63aff76da49397, type: 2}

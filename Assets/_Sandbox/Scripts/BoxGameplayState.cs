@@ -12,7 +12,16 @@ public class DemoGameplayState : GameState
 	// new players upon joining. This allows a "plugin" system for avatar, but can be a bit complex.
 	// If for some reason it causes more gray here than its worth, you can optionally just create a
 	// complete player prefab
-	[SerializeField] private GameObject playerBehavior;
+
+	/// <summary>
+	/// Current Behavior will be used to switch between behaviors
+	/// </summary>
+	[SerializeField] private GameObject currentBehavior;
+
+	[SerializeField] private GameObject normalBehavior;
+
+	[SerializeField] private GameObject torchBehaviour;
+
 	private ILevels _levels;
 	private CinemachineTargetGroup _cameraTargetGroup;
 
@@ -54,13 +63,17 @@ public class DemoGameplayState : GameState
 	}
 
 	protected override void OnPlayerEnter(GameObject player) {
-		player.GetComponent<Avatar>().Inject(playerBehavior);
+		currentBehavior = normalBehavior;
+		player.GetComponent<Avatar>().Inject(currentBehavior);
+		Debug.Log("Player Name: " + player.name);
+
+		
 		_cameraTargetGroup.AddMember(player.transform.GetChild(0), 1f, 1f);
 	}
 
 
 	protected override void OnPlayerExit(GameObject player) {
-		player.GetComponent<Avatar>().Deject(playerBehavior);
+		player.GetComponent<Avatar>().Deject(normalBehavior);
 		_cameraTargetGroup.RemoveMember(player.transform.GetChild(0));
 	}
 
@@ -88,7 +101,23 @@ public class DemoGameplayState : GameState
 	public void OnPlayerCollision(ColliderEventArgs colliderEvent) {
 		// NOTE: this is called based on the AvatarCollision components layer setup, if layer is everything it gets spammed all the time
 		// make sure to set it to the layer that you are actually interested in for example items etc.
-		// ProjectLogger.Log($"[{colliderEvent.That}] OnPlayerCollision");
+		// ProjectLogger.Log($"[{colliderEvent.Other}] OnPlayerCollision");
+
+		if(colliderEvent.Other.layer == LayerMask.NameToLayer("Item"))
+		{
+			Destroy(colliderEvent.Other);
+			Debug.Log("Oyyy its a tooorch");
+			//Debug.Log("This Collider Name: " +colliderEvent.That.name);
+			
+			colliderEvent.That.GetComponentInParent<Avatar>().Deject(currentBehavior);
+			
+			currentBehavior = torchBehaviour;
+			Debug.Log(currentBehavior.name);
+			colliderEvent.That.GetComponentInParent<Avatar>().Inject(currentBehavior);
+			//colliderEvent.That.transform.parent.root.GetComponent<Avatar>().Inject(torchBehaviour);
+
+
+		}
 	}
 
 	/**

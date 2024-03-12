@@ -306,7 +306,7 @@ MonoBehaviour:
   onPlayerCollision: {fileID: 11400000, guid: 0c274ae61082c46d29b0b9269a25d012, type: 2}
   collisionEventLayers:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 65
 --- !u!114 &8963765004964302229
 MonoBehaviour:
   m_ObjectHideFlags: 0

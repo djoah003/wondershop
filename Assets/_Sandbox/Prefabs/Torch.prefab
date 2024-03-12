@@ -121,8 +121,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abe9846217b964d4c8a3e99cfc0b4b82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _light: {fileID: 4744842384344591573}
+  light: {fileID: 4744842384344591573}
   avatar: {fileID: 0}
+  raySegmentCount: 3
 --- !u!1 &4827580736926964912
 GameObject:
   m_ObjectHideFlags: 0

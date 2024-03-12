@@ -4,34 +4,54 @@ using System.Collections.Generic;
 using DG.Tweening;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Torch : MonoBehaviour
 {
-    [SerializeField] private Light _light;
-    public GameObject avatar;
+    [SerializeField] private Light light;
+    [SerializeField] private GameObject avatar;
+    [Range(1, 10)] [SerializeField] private int raySegmentCount;
+   
+    
+    private float range => light.range;
+    Vector3 start => light.transform.position;
+    float angle => light.spotAngle / 2;
+
     
     // Start is called before the first frame update
     private void OnDrawGizmos()
     { 
-        float range = _light.range;
         // spotAngle uses the lights OuterSpotAngle value. Divide it by 2 to be able to use it creating triangles.
-        float angle = _light.spotAngle / 2;
-        // The beginning of the triangle
-        Vector3 start = avatar.transform.position;
-        
-        Vector3 forwardVector = (start + avatar.transform.forward);
-        Vector3.Normalize(forwardVector);
-        forwardVector.z *= range;
 
-        Vector3 leftTri = Quaternion.Euler(0, -angle, 0f) * forwardVector;
-        Vector3 rightTri = Quaternion.Euler(0, angle, 0f) * forwardVector;
+        Vector3 lightForward = light.transform.forward;
+        Vector3 lightMinAngle = Quaternion.Euler(0, -angle, 0) * lightForward;
+        Vector3 lightMaxAngle = Quaternion.Euler(0, angle, 0) * lightForward;
+        float lightAngle = Vector3.Angle(lightMinAngle, lightForward);
         
-        Gizmos.color = Color.red;
-        Gizmos.DrawLine(start, forwardVector);
-        Gizmos.color = Color.green;
-        Gizmos.DrawLine(start, leftTri);
-        Gizmos.DrawLine(start, rightTri);
-        Gizmos.DrawLine(leftTri, rightTri);
+        for (int i = 0; i < raySegmentCount; i++)
+        {
+            float rayAngle = (i / (float)raySegmentCount) * lightAngle;
+            Gizmos.DrawRay(start,  Quaternion.Euler(0, rayAngle, 0) * lightMinAngle * range);
+            Gizmos.DrawRay(start,  Quaternion.Euler(0, rayAngle, 0) * lightForward * range);
+        }
+        Gizmos.DrawRay(start,  lightMaxAngle * range);
+
+    }
+
+    void TorchLogic()
+    {
+        Vector3 lightForward = light.transform.forward;
+        Vector3 lightMinAngle = Quaternion.Euler(0, -angle, 0) * lightForward;
+        Vector3 lightMaxAngle = Quaternion.Euler(0, angle, 0) * lightForward;
+        float lightAngle = Vector3.Angle(lightMinAngle, lightForward);
+        
+        for (int i = 0; i < raySegmentCount; i++)
+        {
+            float rayAngle = (i / (float)raySegmentCount) * lightAngle;
+            Gizmos.DrawRay(start,  Quaternion.Euler(0, rayAngle, 0) * lightMinAngle * range);
+            Gizmos.DrawRay(start,  Quaternion.Euler(0, rayAngle, 0) * lightForward * range);
+        }
+        Gizmos.DrawRay(start,  lightMaxAngle * range);
     }
     
 

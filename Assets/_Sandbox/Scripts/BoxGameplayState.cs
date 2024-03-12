@@ -22,6 +22,10 @@ public class DemoGameplayState : GameState
 
 	[SerializeField] private GameObject torchBehaviour;
 
+	[SerializeField] private GameObject pickaxeBehaviour;
+
+	[SerializeField] private GameObject bagBehaviour;
+
 	private ILevels _levels;
 	private CinemachineTargetGroup _cameraTargetGroup;
 
@@ -63,8 +67,8 @@ public class DemoGameplayState : GameState
 	}
 
 	protected override void OnPlayerEnter(GameObject player) {
-		currentBehavior = normalBehavior;
-		player.GetComponent<Avatar>().Inject(currentBehavior);
+		
+		player.GetComponent<Avatar>().Inject(normalBehavior);
 		Debug.Log("Player Name: " + player.name);
 
 		
@@ -101,23 +105,41 @@ public class DemoGameplayState : GameState
 	public void OnPlayerCollision(ColliderEventArgs colliderEvent) {
 		// NOTE: this is called based on the AvatarCollision components layer setup, if layer is everything it gets spammed all the time
 		// make sure to set it to the layer that you are actually interested in for example items etc.
-		// ProjectLogger.Log($"[{colliderEvent.Other}] OnPlayerCollision");
-
-		if(colliderEvent.Other.layer == LayerMask.NameToLayer("Item"))
+		ProjectLogger.Log($"[{colliderEvent.That}] OnPlayerCollision");
+		
+		
+		GameObject collision = colliderEvent.Other;
+		if(collision.layer == LayerMask.NameToLayer("Item"))
 		{
-			Destroy(colliderEvent.Other);
-			Debug.Log("Oyyy its a tooorch");
-			//Debug.Log("This Collider Name: " +colliderEvent.That.name);
+			
+			
 			
 			colliderEvent.That.GetComponentInParent<Avatar>().Deject(currentBehavior);
-			
-			currentBehavior = torchBehaviour;
-			Debug.Log(currentBehavior.name);
+
+			if(collision.CompareTag("pickaxe"))
+			{
+				Debug.Log("Found Pickaxe");
+				currentBehavior = pickaxeBehaviour;
+			}
+			else if(collision.CompareTag("torch"))
+			{
+				Debug.Log("Found Torch");
+				currentBehavior = torchBehaviour;
+			}
+			else if(collision.CompareTag("bag"))
+			{
+				Debug.Log("Found Bag");
+				currentBehavior = bagBehaviour;
+			}
+
 			colliderEvent.That.GetComponentInParent<Avatar>().Inject(currentBehavior);
+
+		
+			Destroy(collision);
+			//colliderEvent.That.SendMessageUpwards("RoleSwitch",)
 			//colliderEvent.That.transform.parent.root.GetComponent<Avatar>().Inject(torchBehaviour);
-
-
 		}
+		
 	}
 
 	/**

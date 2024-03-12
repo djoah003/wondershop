@@ -7,6 +7,9 @@ TagManager:
   - Ground
   - Avatar
   - PlayerManager
+  - bag
+  - torch
+  - pickaxe
   layers:
   - Default
   - TransparentFX

@@ -213,7 +213,7 @@ GameObject:
   - component: {fileID: 8831447636978436368}
   - component: {fileID: 8775751509380375027}
   - component: {fileID: 601734145150476313}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Avatar
   m_TagString: Avatar
   m_Icon: {fileID: 0}
@@ -410,7 +410,7 @@ GameObject:
   - component: {fileID: 2345693287133580447}
   - component: {fileID: 1717805313868703830}
   - component: {fileID: 5848077621596442262}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -652,7 +652,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6413159545548973891}
   - component: {fileID: 5607053261569045111}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: AvatarCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}

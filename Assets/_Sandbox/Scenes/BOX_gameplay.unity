@@ -199,11 +199,15 @@ MonoBehaviour:
   config: {fileID: 11400000, guid: 13cf63bbaec034a86a5082b93e8277ac, type: 2}
   music: {fileID: 8300000, guid: 5e1f416dbea6a4c2f85bb365a198fa44, type: 3}
   transitionPrefab: {fileID: 0}
-  currentBehavior: {fileID: 7199099543990447128, guid: 6e7ffc5b72c864372b5561ed7ec2a9e7,
+  currentBehavior: {fileID: 2555687046977340728, guid: 86db388483f887345a3440eb6523b6ee,
     type: 3}
   normalBehavior: {fileID: 7199099543990447128, guid: c26c69859a5b943619fbe24d9c40e4fa,
     type: 3}
-  torchBehaviour: {fileID: 7199099543990447128, guid: 6e7ffc5b72c864372b5561ed7ec2a9e7,
+  torchBehaviour: {fileID: 7199099543990447128, guid: 7a1207f6c28290c4e843f2de1f2aa158,
+    type: 3}
+  pickaxeBehaviour: {fileID: 7199099543990447128, guid: e9cbc6f35d6ade945a4a68557a44ce96,
+    type: 3}
+  bagBehaviour: {fileID: 7199099543990447128, guid: 3e74770939d444446a9ba4afd45275a7,
     type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

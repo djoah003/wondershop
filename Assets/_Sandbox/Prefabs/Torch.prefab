@@ -99,7 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   light: {fileID: 4744842384344591573}
   avatar: {fileID: 0}
-  raySegmentCount: 3
+  raySegmentCount: 6
 --- !u!1 &4827580736926964912
 GameObject:
   m_ObjectHideFlags: 0

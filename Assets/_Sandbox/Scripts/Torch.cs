@@ -14,8 +14,10 @@ public class Torch : MonoBehaviour
    
     
     private float range => light.range;
-    Vector3 start => light.transform.position;
-    float angle => light.spotAngle / 2;
+    private Vector3 start => light.transform.position;
+    private Vector3 lightForward => light.transform.forward;
+
+    private float angle => light.spotAngle / 2;
 
     
     // Start is called before the first frame update
@@ -23,35 +25,44 @@ public class Torch : MonoBehaviour
     { 
         // spotAngle uses the lights OuterSpotAngle value. Divide it by 2 to be able to use it creating triangles.
 
-        Vector3 lightForward = light.transform.forward;
-        Vector3 lightMinAngle = Quaternion.Euler(0, -angle, 0) * lightForward;
-        Vector3 lightMaxAngle = Quaternion.Euler(0, angle, 0) * lightForward;
-        float lightAngle = Vector3.Angle(lightMinAngle, lightForward);
-        
-        for (int i = 0; i < raySegmentCount; i++)
-        {
-            float rayAngle = (i / (float)raySegmentCount) * lightAngle;
-            Gizmos.DrawRay(start,  Quaternion.Euler(0, rayAngle, 0) * lightMinAngle * range);
-            Gizmos.DrawRay(start,  Quaternion.Euler(0, rayAngle, 0) * lightForward * range);
-        }
-        Gizmos.DrawRay(start,  lightMaxAngle * range);
+
 
     }
 
     void TorchLogic()
     {
-        Vector3 lightForward = light.transform.forward;
+        float localRange;
         Vector3 lightMinAngle = Quaternion.Euler(0, -angle, 0) * lightForward;
         Vector3 lightMaxAngle = Quaternion.Euler(0, angle, 0) * lightForward;
         float lightAngle = Vector3.Angle(lightMinAngle, lightForward);
         
+        // LEFT SIDE
         for (int i = 0; i < raySegmentCount; i++)
         {
             float rayAngle = (i / (float)raySegmentCount) * lightAngle;
-            Gizmos.DrawRay(start,  Quaternion.Euler(0, rayAngle, 0) * lightMinAngle * range);
-            Gizmos.DrawRay(start,  Quaternion.Euler(0, rayAngle, 0) * lightForward * range);
+            if (Physics.Raycast(start, Quaternion.Euler(0, rayAngle, 0) * lightMinAngle, out RaycastHit leftHit, range))
+            {
+                //Debug.Log("Distance: " + hit.distance);
+                localRange = leftHit.distance;
+                Debug.DrawRay(start,  Quaternion.Euler(0, rayAngle, 0) * lightMinAngle * localRange);
+            }
+            else
+                Debug.DrawRay(start,  Quaternion.Euler(0, rayAngle, 0) * lightMinAngle * range);
         }
-        Gizmos.DrawRay(start,  lightMaxAngle * range);
+        
+        // RIGHT SIDE 
+        for (int i = 0; i < raySegmentCount + 1; i++)
+        {
+            float rayAngle = (i / (float)raySegmentCount) * lightAngle;
+            if (Physics.Raycast(start, Quaternion.Euler(0, -rayAngle, 0) * lightMaxAngle, out RaycastHit rightHit, range))
+            {
+                //Debug.Log("Distance: " + hit.distance);
+                localRange = rightHit.distance;
+                Debug.DrawRay(start,  Quaternion.Euler(0, -rayAngle, 0) * lightMaxAngle * localRange);
+            }
+            else
+                Debug.DrawRay(start,  Quaternion.Euler(0, -rayAngle, 0) * lightMaxAngle * range);
+        }
     }
     
 
@@ -60,9 +71,5 @@ public class Torch : MonoBehaviour
         avatar = transform.parent.root.Find("Avatar").gameObject;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    private void FixedUpdate() => TorchLogic();
 }

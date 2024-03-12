@@ -9,14 +9,14 @@ using UnityEngine.Serialization;
 public class Torch : MonoBehaviour
 {
     [SerializeField] private Light light;
-    [SerializeField] private GameObject avatar;
     [Range(1, 100)] [SerializeField] private int raySegmentCount;
+    [SerializeField] private float lightDamage = 0.01f;
     
     private float range => light.range;
     private Vector3 start => light.transform.position;
     private Vector3 lightForward => light.transform.forward;
     private float angle => light.spotAngle / 2;
-    
+    private void FixedUpdate() => TorchLogic();
 
     void TorchLogic()
     {
@@ -29,7 +29,11 @@ public class Torch : MonoBehaviour
         {
             float rayAngle = (i / (float)raySegmentCount) * lightAngle;
             if (Physics.Raycast(start, Quaternion.Euler(0, rayAngle, 0) * lightMinAngle, out RaycastHit leftHit, range))
+            {
                 DrawLightRay(rayAngle, lightMinAngle, leftHit.distance);
+                if (leftHit.rigidbody != null && leftHit.rigidbody.gameObject.CompareTag("ShadowMonster"))
+                    OnShadowMonsterHit(leftHit);
+            }
             else
                 DrawLightRay(rayAngle, lightMinAngle, range);
         }
@@ -39,21 +43,17 @@ public class Torch : MonoBehaviour
         {
             float rayAngle = (i / (float)raySegmentCount) * lightAngle;
             if (Physics.Raycast(start, Quaternion.Euler(0, -rayAngle, 0) * lightMaxAngle, out RaycastHit rightHit, range))
+            {
                 DrawLightRay(-rayAngle, lightMaxAngle, rightHit.distance);
+                if (rightHit.rigidbody != null && rightHit.rigidbody.gameObject.CompareTag("ShadowMonster"))
+                    OnShadowMonsterHit(rightHit);
+            }            
             else
                 DrawLightRay(-rayAngle, lightMaxAngle, range);
         }
     }
 
-    void DrawLightRay(float rayAngle, Vector3 rayDirection, float rayRange)
-    {
-        Debug.DrawRay(start, Quaternion.Euler(0, rayAngle, 0) * rayDirection * rayRange);
-    }
+    void OnShadowMonsterHit(RaycastHit hit) => hit.rigidbody.gameObject.SendMessage("TakeDamage", lightDamage);
 
-    void Start()
-    {
-        avatar = transform.parent.root.Find("Avatar").gameObject;
-    }
-
-    private void FixedUpdate() => TorchLogic();
+    void DrawLightRay(float rayAngle, Vector3 rayDirection, float rayRange) => Debug.DrawRay(start, Quaternion.Euler(0, rayAngle, 0) * rayDirection * rayRange);
 }

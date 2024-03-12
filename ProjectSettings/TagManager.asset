@@ -10,6 +10,7 @@ TagManager:
   - bag
   - torch
   - pickaxe
+  - ShadowMonster
   layers:
   - Default
   - TransparentFX

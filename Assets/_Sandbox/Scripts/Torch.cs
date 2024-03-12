@@ -9,29 +9,17 @@ using UnityEngine.Serialization;
 public class Torch : MonoBehaviour
 {
     [SerializeField] private Light light;
-    [SerializeField] private GameObject avatar;
-    [Range(1, 10)] [SerializeField] private int raySegmentCount;
-   
+    [Range(1, 100)] [SerializeField] private int raySegmentCount;
+    [SerializeField] private float lightDamage = 0.01f;
     
     private float range => light.range;
     private Vector3 start => light.transform.position;
     private Vector3 lightForward => light.transform.forward;
-
     private float angle => light.spotAngle / 2;
-
-    
-    // Start is called before the first frame update
-    private void OnDrawGizmos()
-    { 
-        // spotAngle uses the lights OuterSpotAngle value. Divide it by 2 to be able to use it creating triangles.
-
-
-
-    }
+    private void FixedUpdate() => TorchLogic();
 
     void TorchLogic()
     {
-        float localRange;
         Vector3 lightMinAngle = Quaternion.Euler(0, -angle, 0) * lightForward;
         Vector3 lightMaxAngle = Quaternion.Euler(0, angle, 0) * lightForward;
         float lightAngle = Vector3.Angle(lightMinAngle, lightForward);
@@ -42,12 +30,12 @@ public class Torch : MonoBehaviour
             float rayAngle = (i / (float)raySegmentCount) * lightAngle;
             if (Physics.Raycast(start, Quaternion.Euler(0, rayAngle, 0) * lightMinAngle, out RaycastHit leftHit, range))
             {
-                //Debug.Log("Distance: " + hit.distance);
-                localRange = leftHit.distance;
-                Debug.DrawRay(start,  Quaternion.Euler(0, rayAngle, 0) * lightMinAngle * localRange);
+                DrawLightRay(rayAngle, lightMinAngle, leftHit.distance);
+                if (leftHit.rigidbody != null && leftHit.rigidbody.gameObject.CompareTag("ShadowMonster"))
+                    OnShadowMonsterHit(leftHit);
             }
             else
-                Debug.DrawRay(start,  Quaternion.Euler(0, rayAngle, 0) * lightMinAngle * range);
+                DrawLightRay(rayAngle, lightMinAngle, range);
         }
         
         // RIGHT SIDE 
@@ -56,20 +44,16 @@ public class Torch : MonoBehaviour
             float rayAngle = (i / (float)raySegmentCount) * lightAngle;
             if (Physics.Raycast(start, Quaternion.Euler(0, -rayAngle, 0) * lightMaxAngle, out RaycastHit rightHit, range))
             {
-                //Debug.Log("Distance: " + hit.distance);
-                localRange = rightHit.distance;
-                Debug.DrawRay(start,  Quaternion.Euler(0, -rayAngle, 0) * lightMaxAngle * localRange);
-            }
+                DrawLightRay(-rayAngle, lightMaxAngle, rightHit.distance);
+                if (rightHit.rigidbody != null && rightHit.rigidbody.gameObject.CompareTag("ShadowMonster"))
+                    OnShadowMonsterHit(rightHit);
+            }            
             else
-                Debug.DrawRay(start,  Quaternion.Euler(0, -rayAngle, 0) * lightMaxAngle * range);
+                DrawLightRay(-rayAngle, lightMaxAngle, range);
         }
     }
-    
 
-    void Start()
-    {
-        avatar = transform.parent.root.Find("Avatar").gameObject;
-    }
+    void OnShadowMonsterHit(RaycastHit hit) => hit.rigidbody.gameObject.SendMessage("TakeDamage", lightDamage);
 
-    private void FixedUpdate() => TorchLogic();
+    void DrawLightRay(float rayAngle, Vector3 rayDirection, float rayRange) => Debug.DrawRay(start, Quaternion.Euler(0, rayAngle, 0) * rayDirection * rayRange);
 }

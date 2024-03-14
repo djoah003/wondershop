@@ -105,7 +105,7 @@ public class ShadowMonster : MonoBehaviour
     {
         if (isRunningAway)
             RunAway();
-        else if (monsterHealth <= 0)
+        else if (monsterHealth <= 0 && !isRunningAway)
             Destroy(gameObject);
         else
             SeekPlayer();

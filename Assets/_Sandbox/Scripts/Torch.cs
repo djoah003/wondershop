@@ -11,7 +11,6 @@ public class Torch : MonoBehaviour
     [SerializeField] private Light light;
     [Range(1, 100)] [SerializeField] private int raySegmentCount;
     [SerializeField] private float lightDamage = 0.01f;
-    
     private float range => light.range;
     private Vector3 start => light.transform.position;
     private Vector3 lightForward => light.transform.forward;

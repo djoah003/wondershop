@@ -200,7 +200,9 @@ public class DemoGameplayState : GameState
 		// Currently the hold is very short time, 0.4seconds so this is almost the same 
 		// as press, you can either tweak the input settings or figure out other ways to detect hold
 		//ProjectLogger.Log($"[{GetType().Name}] OnPlayerActionHold");
-		player.transform.parent.BroadcastMessage("HoldActionButton");
+		player.transform.parent.BroadcastMessage("HoldActionButton", true);
+		//player.transform.parent.BroadcastMessage("pressedTrue");
 
 	}
+
 }

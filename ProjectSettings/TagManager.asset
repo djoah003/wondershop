@@ -11,7 +11,8 @@ TagManager:
   - torch
   - pickaxe
   - ShadowMonster
-  - pickaxePlayer
+  - rock
+  - gold
   layers:
   - Default
   - TransparentFX

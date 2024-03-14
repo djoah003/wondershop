@@ -12,10 +12,11 @@ GameObject:
   - component: {fileID: 8226930448010675152}
   - component: {fileID: 3708907394907949537}
   - component: {fileID: 3433250183332485117}
-  - component: {fileID: 7495102469415115580}
+  - component: {fileID: -2386912223811433656}
+  - component: {fileID: 4200991418337899654}
   m_Layer: 0
   m_Name: Rock
-  m_TagString: Untagged
+  m_TagString: rock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -64,7 +65,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 41680dad0f0243748b4e228f49a2e3c4, type: 2}
+  - {fileID: 1629873732251258032, guid: ee569ee4d402ae64d955e5fe1f0df71d, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -108,27 +109,50 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: bfc3a74fe76960845b1626f17f183c0d, type: 3}
---- !u!135 &7495102469415115580
-SphereCollider:
+--- !u!54 &-2386912223811433656
+Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1725905004032775583}
-  m_Material: {fileID: 0}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
+--- !u!114 &4200991418337899654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1725905004032775583}
   m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 1.4816844
-  m_Center: {x: 0, y: 0.71482235, z: 0}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f38b1cdbbf12ed4cacca788ad91e5ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 200
+  destroyedRocks: {fileID: 4338151832083648316, guid: eea593b6e71fb1e4a91ad9165cc36b37,
+    type: 3}
+  smallRock: {fileID: 7308113372934404263, guid: 1631ba66474714d42a4a894229afc4ee,
+    type: 3}
 --- !u!1 &3364021606432579144
 GameObject:
   m_ObjectHideFlags: 0

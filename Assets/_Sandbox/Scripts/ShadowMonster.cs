@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,26 +10,25 @@ public class ShadowMonster : MonoBehaviour
     [SerializeField] private List<GameObject> players = new List<GameObject>();
     [Range(0.1f, 100f)][SerializeField] private float damageThresh;
 
-    private const float DistanceThresh = 20f * 2;
+    private const float DistanceThresh = 20f * 1.5f;
+
+    private float receivedDamage;
     
-    private float damageTaken;
     private bool isRunningAway;
     private NavMeshAgent navMeshAI;
 
     private Vector3 monsterPos => gameObject.transform.position;
     
-    public void TakeDamage(float damage)
+    private void TakeDamage(float damage)
     {
-        damageTaken += damage; 
-    //    Debug.Log("Damage Taken: " + damageTaken);
-
-        if(damageTaken < damageThresh) return;
+        receivedDamage += damage;
+    //    Debug.Log("Damage Taken: " + receivedDamage);
+    
+        if(receivedDamage < damageThresh) return;
         monsterHealth -= damage;
 
         if (!isRunningAway)
             isRunningAway = true;
-
-        //      TODO: move enemy away from light after taking damage.
     }
 
     private void SeekPlayer()
@@ -56,7 +56,6 @@ public class ShadowMonster : MonoBehaviour
         return closestPlayer;
     }
     
-
     private void RunAway()
     {
         // store the starting transform
@@ -68,7 +67,7 @@ public class ShadowMonster : MonoBehaviour
         Vector3 runTo = transform.position + transform.forward * DistanceThresh;
         
         // 5 is the distance to check, assumes you use default for the NavMesh Layer name
-        NavMesh.SamplePosition(runTo, out NavMeshHit hit, 5, 1 << NavMesh.GetAreaFromName("Default")); 
+        NavMesh.SamplePosition(runTo, out NavMeshHit hit, DistanceThresh, 1 << NavMesh.GetAreaFromName("Walkable")); 
         
         // reset the transform back to our start transform
         transform.position = startTransform.position;
@@ -78,10 +77,20 @@ public class ShadowMonster : MonoBehaviour
         navMeshAI.SetDestination(hit.position);
         
         if (DistanceThresh < Vector3.Distance(transform.position, ClosestPlayer().transform.position))
+        {
             isRunningAway = false;
+            receivedDamage = 0;
+        }    
     }
-    
-    
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            // TODO: DO STUFF?
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -89,7 +98,6 @@ public class ShadowMonster : MonoBehaviour
     //     Iterate through every player in scene
         foreach (var player in GameObject.FindGameObjectsWithTag("Player"))
             players.Add(player);
-            
     }
 
     // Update is called once per frame
@@ -97,6 +105,8 @@ public class ShadowMonster : MonoBehaviour
     {
         if (isRunningAway)
             RunAway();
+        else if (monsterHealth <= 0)
+            Destroy(gameObject);
         else
             SeekPlayer();
     }

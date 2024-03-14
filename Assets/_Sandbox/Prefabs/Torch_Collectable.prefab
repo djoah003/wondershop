@@ -127,9 +127,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 313087529744705778}
-  - component: {fileID: 5216014267309046457}
-  - component: {fileID: 2132821286217957478}
-  - component: {fileID: 166045473418800217}
+  - component: {fileID: 4899250196594152740}
   m_Layer: 6
   m_Name: Torch_Collectable
   m_TagString: torch
@@ -154,45 +152,8 @@ Transform:
   - {fileID: 8473212840177621724}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5216014267309046457
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4465806905646818787}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0bdba6bf1f69557438a61813e770fe7f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  degreesPerSecond: 30
-  amplitude: 0.21
-  frequency: 0.666
---- !u!64 &2132821286217957478
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4465806905646818787}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -6492427120234770954, guid: ee569ee4d402ae64d955e5fe1f0df71d, type: 3}
---- !u!65 &166045473418800217
-BoxCollider:
+--- !u!135 &4899250196594152740
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -210,7 +171,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.07192815, y: 0.031409852, z: 0.16821817}
+  m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &7124120047519394677
 PrefabInstance:
@@ -365,7 +326,11 @@ PrefabInstance:
     m_RemovedGameObjects:
     - {fileID: -5743350618785959237, guid: ee569ee4d402ae64d955e5fe1f0df71d, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ee569ee4d402ae64d955e5fe1f0df71d,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2816147570275335830}
   m_SourcePrefab: {fileID: 100100000, guid: ee569ee4d402ae64d955e5fe1f0df71d, type: 3}
 --- !u!4 &7302388941118540958 stripped
 Transform:
@@ -373,3 +338,24 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 7124120047519394677}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &7934388862140077604 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: ee569ee4d402ae64d955e5fe1f0df71d,
+    type: 3}
+  m_PrefabInstance: {fileID: 7124120047519394677}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2816147570275335830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7934388862140077604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bdba6bf1f69557438a61813e770fe7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  degreesPerSecond: 30
+  amplitude: 0.21
+  frequency: 0.666

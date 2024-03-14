@@ -9,8 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 313087529744705778}
-  - component: {fileID: 5216014267309046457}
-  - component: {fileID: 166045473418800217}
+  - component: {fileID: 6588653038714175722}
   m_Layer: 6
   m_Name: Pickaxe_Collectable
   m_TagString: pickaxe
@@ -35,23 +34,8 @@ Transform:
   - {fileID: 3246215846923187736}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5216014267309046457
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4465806905646818787}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0bdba6bf1f69557438a61813e770fe7f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  degreesPerSecond: 30
-  amplitude: 0.21
-  frequency: 0.666
---- !u!65 &166045473418800217
-BoxCollider:
+--- !u!135 &6588653038714175722
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -69,8 +53,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.11852159, y: 0.23805861, z: 0.15436007}
-  m_Center: {x: 0, y: 0.04011559, z: -0.006929047}
+  m_Radius: 0.44156307
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5371977724686777728
 GameObject:
   m_ObjectHideFlags: 0
@@ -280,8 +264,33 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 3471c3c9ef7410b43b63509bd33964b3,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1627787824790463989}
   m_SourcePrefab: {fileID: 100100000, guid: 3471c3c9ef7410b43b63509bd33964b3, type: 3}
+--- !u!1 &5829795519473632553 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 3471c3c9ef7410b43b63509bd33964b3,
+    type: 3}
+  m_PrefabInstance: {fileID: 6640260725768910968}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1627787824790463989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5829795519473632553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bdba6bf1f69557438a61813e770fe7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  degreesPerSecond: 30
+  amplitude: 0.21
+  frequency: 0.666
 --- !u!4 &6605734535446634387 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3471c3c9ef7410b43b63509bd33964b3,

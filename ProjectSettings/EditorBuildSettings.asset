@@ -18,6 +18,9 @@ EditorBuildSettings:
     path: Assets/_Sandbox/Scenes/BOX_gameplay.unity
     guid: 7a612c71734074232a6ac0c4f781ae37
   - enabled: 1
+    path: Assets/_Sandbox/Scenes/Map.unity
+    guid: 3fceaf8f5b63c2f4d9b2cd3d6c8a86e4
+  - enabled: 1
     path: Assets/_Sandbox/Scenes/BOX_level_1.unity
     guid: 60603aabd28814b48ad494664311f762
   m_configObjects:

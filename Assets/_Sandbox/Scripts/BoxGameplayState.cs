@@ -105,7 +105,7 @@ public class DemoGameplayState : GameState
 	public void OnPlayerCollision(ColliderEventArgs colliderEvent) {
 		// NOTE: this is called based on the AvatarCollision components layer setup, if layer is everything it gets spammed all the time
 		// make sure to set it to the layer that you are actually interested in for example items etc.
-		ProjectLogger.Log($"[{colliderEvent.That}] OnPlayerCollision");
+		//ProjectLogger.Log($"[{colliderEvent.That}] OnPlayerCollision");
 		
 		
 		GameObject collision = colliderEvent.Other;
@@ -191,6 +191,8 @@ public class DemoGameplayState : GameState
 	[EventListener]
 	public void OnPlayerActionPress(GameObject player) {
 		// ProjectLogger.Log($"[{GetType().Name}] OnPlayerActionPush");
+		player.transform.parent.BroadcastMessage("ActionButton");
+
 	}
 
 	[EventListener]
@@ -198,5 +200,7 @@ public class DemoGameplayState : GameState
 		// Currently the hold is very short time, 0.4seconds so this is almost the same 
 		// as press, you can either tweak the input settings or figure out other ways to detect hold
 		//ProjectLogger.Log($"[{GetType().Name}] OnPlayerActionHold");
+		player.transform.parent.BroadcastMessage("HoldActionButton");
+
 	}
 }

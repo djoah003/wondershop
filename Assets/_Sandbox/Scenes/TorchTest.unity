@@ -525,7 +525,7 @@ PrefabInstance:
     - target: {fileID: 2350519228341873584, guid: 99fe34ef0566a48189d22cfcc7d2746b,
         type: 3}
       propertyPath: raySegmentCount
-      value: 10
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 2363016333357850600, guid: 99fe34ef0566a48189d22cfcc7d2746b,
         type: 3}
@@ -591,6 +591,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4744842384344591573, guid: 99fe34ef0566a48189d22cfcc7d2746b,
+        type: 3}
+      propertyPath: m_SpotAngle
+      value: 79.16323
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

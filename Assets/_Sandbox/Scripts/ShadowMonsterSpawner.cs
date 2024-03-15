@@ -7,7 +7,7 @@ public class ShadowMonsterSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject monster;
     [SerializeField] private List<GameObject> monstersList = new List<GameObject>();
-    [SerializeField] private int maxEnemyAmount = 5;
+    [SerializeField] private int maxEnemyAmount = 2;
     private List<GameObject> players = new List<GameObject>();
     private Vector3 pos => gameObject.transform.position;
 
@@ -30,7 +30,7 @@ public class ShadowMonsterSpawner : MonoBehaviour
 
     private IEnumerator MonsterSpawning()
     {
-        yield return new WaitForSeconds(Random.Range(5f, 11f));
+        yield return new WaitForSeconds(Random.Range(10f, 60f));
         // TODO: Enemy gets instantiated with index and once died it deletes itself from the list.
         // Check if there's space to spawn a new monster
         if (monstersList.Count < maxEnemyAmount)
@@ -45,6 +45,7 @@ public class ShadowMonsterSpawner : MonoBehaviour
                 monstersList.RemoveAt(i);
         // Re-run coroutine
         StartCoroutine(MonsterSpawning());
+        
     }
     // Start is called before the first frame update
     void Start()

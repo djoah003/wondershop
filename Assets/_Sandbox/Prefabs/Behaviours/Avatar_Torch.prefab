@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 1519662994856985689}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: -0.2}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -98,8 +98,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   light: {fileID: 4744842384344591573}
-  raySegmentCount: 10
-  lightDamage: 0.01
+  raySegmentCount: 25
+  lightDamage: 0.02
   collectable: {fileID: 4465806905646818787, guid: 9949e9a6ff849094bb515d946317dba7,
     type: 3}
 --- !u!1 &4827580736926964912
@@ -148,8 +148,8 @@ Light:
   m_Shape: 0
   m_Color: {r: 1, g: 0.84842384, b: 0.7028302, a: 1}
   m_Intensity: 100
-  m_Range: 20
-  m_SpotAngle: 45
+  m_Range: 25
+  m_SpotAngle: 90
   m_InnerSpotAngle: 45
   m_CookieSize: 10
   m_Shadows:

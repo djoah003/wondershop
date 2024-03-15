@@ -96,7 +96,7 @@ public class ShadowMonster : MonoBehaviour
     {
         navMeshAI = GetComponent<NavMeshAgent>();
     //     Iterate through every player in scene
-        foreach (var player in GameObject.FindGameObjectsWithTag("Player"))
+        foreach (var player in GameObject.FindGameObjectsWithTag("Avatar"))
             players.Add(player);
     }
 

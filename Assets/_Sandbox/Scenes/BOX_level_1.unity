@@ -651,7 +651,7 @@ PrefabInstance:
     - target: {fileID: 3606052732524127399, guid: 67e776af27d274a0fa3aa07afaf8fa7b,
         type: 3}
       propertyPath: maxEnemyAmount
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4970249837600030748, guid: 67e776af27d274a0fa3aa07afaf8fa7b,
         type: 3}
@@ -4849,7 +4849,7 @@ PrefabInstance:
     - target: {fileID: 3606052732524127399, guid: 67e776af27d274a0fa3aa07afaf8fa7b,
         type: 3}
       propertyPath: maxEnemyAmount
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4970249837600030748, guid: 67e776af27d274a0fa3aa07afaf8fa7b,
         type: 3}
@@ -13095,7 +13095,7 @@ PrefabInstance:
     - target: {fileID: 3606052732524127399, guid: 67e776af27d274a0fa3aa07afaf8fa7b,
         type: 3}
       propertyPath: maxEnemyAmount
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4970249837600030748, guid: 67e776af27d274a0fa3aa07afaf8fa7b,
         type: 3}
@@ -15938,7 +15938,7 @@ PrefabInstance:
     - target: {fileID: 3606052732524127399, guid: 67e776af27d274a0fa3aa07afaf8fa7b,
         type: 3}
       propertyPath: maxEnemyAmount
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4970249837600030748, guid: 67e776af27d274a0fa3aa07afaf8fa7b,
         type: 3}
@@ -16149,7 +16149,7 @@ PrefabInstance:
     - target: {fileID: 3606052732524127399, guid: 67e776af27d274a0fa3aa07afaf8fa7b,
         type: 3}
       propertyPath: maxEnemyAmount
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4970249837600030748, guid: 67e776af27d274a0fa3aa07afaf8fa7b,
         type: 3}
@@ -17668,7 +17668,7 @@ PrefabInstance:
     - target: {fileID: 3606052732524127399, guid: 67e776af27d274a0fa3aa07afaf8fa7b,
         type: 3}
       propertyPath: maxEnemyAmount
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4970249837600030748, guid: 67e776af27d274a0fa3aa07afaf8fa7b,
         type: 3}
@@ -19262,7 +19262,7 @@ PrefabInstance:
     - target: {fileID: 3606052732524127399, guid: 67e776af27d274a0fa3aa07afaf8fa7b,
         type: 3}
       propertyPath: maxEnemyAmount
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4970249837600030748, guid: 67e776af27d274a0fa3aa07afaf8fa7b,
         type: 3}

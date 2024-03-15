@@ -648,12 +648,19 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3606052732524127399, guid: 67e776af27d274a0fa3aa07afaf8fa7b,
+        type: 3}
+      propertyPath: maxEnemyAmount
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4970249837600030748, guid: 67e776af27d274a0fa3aa07afaf8fa7b,
         type: 3}
       propertyPath: m_Name
       value: MonsterSpawner (3)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6322146294894191929, guid: 67e776af27d274a0fa3aa07afaf8fa7b, type: 3}
+    - {fileID: 8628385571972166366, guid: 67e776af27d274a0fa3aa07afaf8fa7b, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -4839,12 +4846,19 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3606052732524127399, guid: 67e776af27d274a0fa3aa07afaf8fa7b,
+        type: 3}
+      propertyPath: maxEnemyAmount
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4970249837600030748, guid: 67e776af27d274a0fa3aa07afaf8fa7b,
         type: 3}
       propertyPath: m_Name
       value: MonsterSpawner (6)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6322146294894191929, guid: 67e776af27d274a0fa3aa07afaf8fa7b, type: 3}
+    - {fileID: 8628385571972166366, guid: 67e776af27d274a0fa3aa07afaf8fa7b, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -13078,12 +13092,19 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3606052732524127399, guid: 67e776af27d274a0fa3aa07afaf8fa7b,
+        type: 3}
+      propertyPath: maxEnemyAmount
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4970249837600030748, guid: 67e776af27d274a0fa3aa07afaf8fa7b,
         type: 3}
       propertyPath: m_Name
       value: MonsterSpawner (5)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6322146294894191929, guid: 67e776af27d274a0fa3aa07afaf8fa7b, type: 3}
+    - {fileID: 8628385571972166366, guid: 67e776af27d274a0fa3aa07afaf8fa7b, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -15914,12 +15935,19 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3606052732524127399, guid: 67e776af27d274a0fa3aa07afaf8fa7b,
+        type: 3}
+      propertyPath: maxEnemyAmount
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4970249837600030748, guid: 67e776af27d274a0fa3aa07afaf8fa7b,
         type: 3}
       propertyPath: m_Name
       value: MonsterSpawner (2)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6322146294894191929, guid: 67e776af27d274a0fa3aa07afaf8fa7b, type: 3}
+    - {fileID: 8628385571972166366, guid: 67e776af27d274a0fa3aa07afaf8fa7b, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -16118,12 +16146,19 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3606052732524127399, guid: 67e776af27d274a0fa3aa07afaf8fa7b,
+        type: 3}
+      propertyPath: maxEnemyAmount
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4970249837600030748, guid: 67e776af27d274a0fa3aa07afaf8fa7b,
         type: 3}
       propertyPath: m_Name
       value: MonsterSpawner (4)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6322146294894191929, guid: 67e776af27d274a0fa3aa07afaf8fa7b, type: 3}
+    - {fileID: 8628385571972166366, guid: 67e776af27d274a0fa3aa07afaf8fa7b, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -17630,12 +17665,19 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3606052732524127399, guid: 67e776af27d274a0fa3aa07afaf8fa7b,
+        type: 3}
+      propertyPath: maxEnemyAmount
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4970249837600030748, guid: 67e776af27d274a0fa3aa07afaf8fa7b,
         type: 3}
       propertyPath: m_Name
       value: MonsterSpawner (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6322146294894191929, guid: 67e776af27d274a0fa3aa07afaf8fa7b, type: 3}
+    - {fileID: 8628385571972166366, guid: 67e776af27d274a0fa3aa07afaf8fa7b, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -19217,12 +19259,19 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3606052732524127399, guid: 67e776af27d274a0fa3aa07afaf8fa7b,
+        type: 3}
+      propertyPath: maxEnemyAmount
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4970249837600030748, guid: 67e776af27d274a0fa3aa07afaf8fa7b,
         type: 3}
       propertyPath: m_Name
       value: MonsterSpawner
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6322146294894191929, guid: 67e776af27d274a0fa3aa07afaf8fa7b, type: 3}
+    - {fileID: 8628385571972166366, guid: 67e776af27d274a0fa3aa07afaf8fa7b, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -20712,7 +20761,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 0.1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &5006852992544510342
 Transform:
@@ -21043,7 +21092,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.66494155
+  m_Radius: 0.3
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6352578286308665214
 GameObject:
@@ -21082,7 +21131,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.44156307
+  m_Radius: 0.1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &6605734536515479157
 Transform:

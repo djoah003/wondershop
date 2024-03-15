@@ -203,7 +203,7 @@ MonoBehaviour:
     type: 3}
   normalBehavior: {fileID: 7199099543990447128, guid: c26c69859a5b943619fbe24d9c40e4fa,
     type: 3}
-  torchBehaviour: {fileID: 7199099543990447128, guid: 7a1207f6c28290c4e843f2de1f2aa158,
+  torchBehaviour: {fileID: 1519662994856985689, guid: 99fe34ef0566a48189d22cfcc7d2746b,
     type: 3}
   pickaxeBehaviour: {fileID: 7199099543990447128, guid: e9cbc6f35d6ade945a4a68557a44ce96,
     type: 3}

@@ -1,3 +1,4 @@
+using System.Collections;
 using Cinemachine;
 using UnityEngine;
 
@@ -26,6 +27,8 @@ public class DemoGameplayState : GameState
 
 	[SerializeField] private GameObject bagBehaviour;
 
+	[SerializeField] private bool itemHeld;
+
 	private ILevels _levels;
 	private CinemachineTargetGroup _cameraTargetGroup;
 
@@ -36,6 +39,10 @@ public class DemoGameplayState : GameState
 	// example of some game specific helpers
 	private static void LockPlayer(GameObject avatar, bool value = true) {
 		foreach (AvatarBehaviour behaviour in avatar.GetComponents<AvatarBehaviour>()) behaviour.SetActive(!value);
+	}
+
+	private static void UnlockPlayer(GameObject avatar, bool value = true) {
+		foreach (AvatarBehaviour behaviour in avatar.GetComponents<AvatarBehaviour>()) behaviour.SetActive(value);
 	}
 
 
@@ -109,37 +116,46 @@ public class DemoGameplayState : GameState
 		
 		
 		GameObject collision = colliderEvent.Other;
-		if(collision.layer == LayerMask.NameToLayer("Item"))
+		GameObject player = colliderEvent.That;
+		
+			if(collision.layer == LayerMask.NameToLayer("Item"))
+			{
+				
+				colliderEvent.That.GetComponentInParent<Avatar>().Deject(currentBehavior);
+				
+				if(collision.CompareTag("pickaxe"))
+				{
+					Debug.Log("Found Pickaxe");
+					HoldItem(player,pickaxeBehaviour);
+				}
+				else if(collision.CompareTag("torch"))
+				{
+					Debug.Log("Found Torch");
+					HoldItem(player,torchBehaviour);
+					
+				}
+				else if(collision.CompareTag("bag"))
+				{
+					Debug.Log("Found Bag");
+					HoldItem(player,bagBehaviour);
+				}
+
+				player.GetComponentInParent<Avatar>().Inject(currentBehavior);
+
+			
+				Destroy(collision);
+			}
+		
+		
+		
+		if(collision.layer == LayerMask.NameToLayer("ShadowMonster"))
 		{
+			player.BroadcastMessage("DropItem");
 			
-			
-			
-			colliderEvent.That.GetComponentInParent<Avatar>().Deject(currentBehavior);
+			player.GetComponentInParent<Avatar>().Deject(currentBehavior);
+			StartCoroutine(FreezePlayer(player));
 
-			if(collision.CompareTag("pickaxe"))
-			{
-				Debug.Log("Found Pickaxe");
-				currentBehavior = pickaxeBehaviour;
-			}
-			else if(collision.CompareTag("torch"))
-			{
-				Debug.Log("Found Torch");
-				currentBehavior = torchBehaviour;
-			}
-			else if(collision.CompareTag("bag"))
-			{
-				Debug.Log("Found Bag");
-				currentBehavior = bagBehaviour;
-			}
-
-			colliderEvent.That.GetComponentInParent<Avatar>().Inject(currentBehavior);
-
-		
-			Destroy(collision);
-			//colliderEvent.That.SendMessageUpwards("RoleSwitch",)
-			//colliderEvent.That.transform.parent.root.GetComponent<Avatar>().Inject(torchBehaviour);
 		}
-		
 	}
 
 	/**
@@ -202,7 +218,22 @@ public class DemoGameplayState : GameState
 		//ProjectLogger.Log($"[{GetType().Name}] OnPlayerActionHold");
 		player.transform.parent.BroadcastMessage("HoldActionButton", true);
 		//player.transform.parent.BroadcastMessage("pressedTrue");
+	}
 
+	 private IEnumerator FreezePlayer(GameObject avatar)
+    {
+		LockPlayer(avatar,true);
+		itemHeld = false;
+        yield return new WaitForSeconds(3f);
+		LockPlayer(avatar,false);
+    }
+
+	private void HoldItem(GameObject player, GameObject newBehaviour)
+	{
+		itemHeld = false;
+		player.BroadcastMessage("DropItem");
+		currentBehavior = newBehaviour;
+		itemHeld = true;
 	}
 
 }

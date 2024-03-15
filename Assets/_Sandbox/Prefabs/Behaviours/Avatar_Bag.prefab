@@ -599,8 +599,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 995da2d32191a2346b27adeceb802ff8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemHeld: 1
   currentGold: 0
   maxGold: 0
+  collectable: {fileID: 4465806905646818787, guid: c3d572fd0b2537149a46af160f9a9a44,
+    type: 3}
+  gold: {fileID: 7308113372934404263, guid: 1631ba66474714d42a4a894229afc4ee, type: 3}
 --- !u!135 &792992066459132526
 SphereCollider:
   m_ObjectHideFlags: 0

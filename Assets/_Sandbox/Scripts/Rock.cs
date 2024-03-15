@@ -10,7 +10,7 @@ public class Rock : MonoBehaviour
 
     [SerializeField] private GameObject destroyedRocks;
 
-    [SerializeField] private GameObject smallRock;
+    [SerializeField] private GameObject gold;
 
     void Start()
     {
@@ -18,7 +18,7 @@ public class Rock : MonoBehaviour
     }
     public void DropRock()
     {
-        GameObject collectableRock = Instantiate(smallRock, new Vector3(transform.position.x, transform.position.y + 0.2f, transform.position.z), transform.rotation);
+        GameObject collectableRock = Instantiate(gold, new Vector3(transform.position.x, transform.position.y + 0.2f, transform.position.z), transform.rotation);
         collectableRock.GetComponent<Rigidbody>().AddForce(transform.up, ForceMode.Impulse);
         DecreaseHealth();
     }

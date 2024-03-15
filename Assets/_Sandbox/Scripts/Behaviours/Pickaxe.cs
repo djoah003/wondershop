@@ -7,7 +7,8 @@ using System;
 
 public class Pickaxe : MonoBehaviour
 {
-    
+    public bool itemHeld = true;
+
     
     [Header("Rock Data")]
     private bool inRockRange;
@@ -24,6 +25,9 @@ public class Pickaxe : MonoBehaviour
     
     [Range(1f, 100f)]
     private float mineValue;
+
+    [Header("Collectible Drop")]
+    [SerializeField] private GameObject collectable;
 
     
 
@@ -47,6 +51,10 @@ public class Pickaxe : MonoBehaviour
             Debug.Log("Hit Rock");
             //this.transform.root.transform.position = closestRock.transform.position;
             startMiningTimer(value);
+        }
+        else
+        {
+            mineValue = 0;
         }
         
     }
@@ -73,12 +81,18 @@ public class Pickaxe : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         isHeldDown = false;
+        
     }
 
 
     void Update()
     {
         slider.value = mineValue;
+        mineValue = mineValue-0.5f;
+        if(mineValue<1f)
+        {
+            mineValue = 1f;
+        }
         
         if(isHeldDown)
             startMiningTimer(true);
@@ -90,22 +104,14 @@ public class Pickaxe : MonoBehaviour
 
     public void RockSlider()
     {
-        mineValue += 0.5f;
+        mineValue += 1f;
         if(mineValue >= 100f)
         {
             closestRock.GetComponent<Rock>().DropRock();
             mineValue = 0;
         }
     }
-
-    public void DropRock()
-    {
-        GameObject collectableRock = Instantiate(gold, new Vector3(transform.position.x, transform.position.y + 0.2f, transform.position.z), transform.rotation);
-        collectableRock.GetComponent<Rigidbody>().AddForce(new Vector3(transform.position.x, transform.position.y + 0.1f, transform.position.z));
-    }
-
-
-
+   
     void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("rock"))
@@ -123,6 +129,14 @@ public class Pickaxe : MonoBehaviour
             Debug.Log("Exit");
             inRockRange = false;
             closestRock = null;
+            mineValue = 0;
         }
+    }
+
+
+    private void DropItem()
+    {
+        GameObject collectableDrop = Instantiate(collectable, new Vector3(transform.position.x + 2, transform.position.y + 5f, transform.position.z), transform.rotation);
+        //collectableDrop.GetComponent<Rigidbody>().AddForce(transform.right, ForceMode.Force);
     }
 }

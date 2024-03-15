@@ -8,6 +8,7 @@ using UnityEngine.Serialization;
 
 public class Torch : MonoBehaviour
 {
+    public bool itemHeld() => true;
     [SerializeField] private Light light;
     [Range(1, 100)] [SerializeField] private int raySegmentCount;
     [SerializeField] private float lightDamage = 0.01f;
@@ -16,6 +17,9 @@ public class Torch : MonoBehaviour
     private Vector3 lightForward => light.transform.forward;
     private float angle => light.spotAngle / 2;
     private void FixedUpdate() => TorchLogic();
+
+    [Header("Collectible Drop")]
+    [SerializeField] private GameObject collectable;
 
     void TorchLogic()
     {
@@ -51,4 +55,12 @@ public class Torch : MonoBehaviour
             OnShadowMonsterHit(hit);
     }
     void OnShadowMonsterHit(RaycastHit hit) => hit.rigidbody.gameObject.SendMessage("TakeDamage", lightDamage);
+
+    private void DropItem()
+    {
+        GameObject collectableDrop = Instantiate(collectable, new Vector3(transform.position.x, transform.position.y + 0.2f, transform.position.z), transform.rotation);
+    }
+
+    
+    
 }

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6505275609338964137}
   - component: {fileID: 3639445024858178781}
   - component: {fileID: 1437393928368336383}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ShadowMonster
   m_TagString: ShadowMonster
   m_Icon: {fileID: 0}
@@ -150,7 +150,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!195 &1437393928368336383
 NavMeshAgent:

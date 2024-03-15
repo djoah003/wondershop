@@ -151,8 +151,7 @@ MonoBehaviour:
   health: 200
   destroyedRocks: {fileID: 4338151832083648316, guid: eea593b6e71fb1e4a91ad9165cc36b37,
     type: 3}
-  smallRock: {fileID: 7308113372934404263, guid: 1631ba66474714d42a4a894229afc4ee,
-    type: 3}
+  gold: {fileID: 7308113372934404263, guid: 1631ba66474714d42a4a894229afc4ee, type: 3}
 --- !u!1 &3364021606432579144
 GameObject:
   m_ObjectHideFlags: 0

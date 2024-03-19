@@ -10,7 +10,7 @@ public class ShadowMonster : MonoBehaviour
     [SerializeField] private List<GameObject> players = new List<GameObject>();
     [Range(0.1f, 100f)][SerializeField] private float damageThresh;
 
-    private const float DistanceThresh = 20f * 1.5f;
+    private const float DistanceThresh = 15f;
 
     private float receivedDamage;
     

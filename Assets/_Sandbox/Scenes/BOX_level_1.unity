@@ -918,6 +918,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3606052732524127399, guid: 67e776af27d274a0fa3aa07afaf8fa7b,
         type: 3}
+      propertyPath: monster
+      value: 
+      objectReference: {fileID: 498253721416304272, guid: f6ab88624626d1249bd73bcb4a1c7d59,
+        type: 3}
+    - target: {fileID: 3606052732524127399, guid: 67e776af27d274a0fa3aa07afaf8fa7b,
+        type: 3}
       propertyPath: maxEnemyAmount
       value: 3
       objectReference: {fileID: 0}
@@ -7132,6 +7138,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3606052732524127399, guid: 67e776af27d274a0fa3aa07afaf8fa7b,
+        type: 3}
+      propertyPath: monster
+      value: 
+      objectReference: {fileID: 498253721416304272, guid: f6ab88624626d1249bd73bcb4a1c7d59,
+        type: 3}
     - target: {fileID: 3606052732524127399, guid: 67e776af27d274a0fa3aa07afaf8fa7b,
         type: 3}
       propertyPath: maxEnemyAmount
@@ -18987,7 +18999,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1389393606
 Transform:
   m_ObjectHideFlags: 0
@@ -19492,6 +19504,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3606052732524127399, guid: 67e776af27d274a0fa3aa07afaf8fa7b,
+        type: 3}
+      propertyPath: monster
+      value: 
+      objectReference: {fileID: 498253721416304272, guid: f6ab88624626d1249bd73bcb4a1c7d59,
+        type: 3}
     - target: {fileID: 3606052732524127399, guid: 67e776af27d274a0fa3aa07afaf8fa7b,
         type: 3}
       propertyPath: maxEnemyAmount
@@ -23779,6 +23797,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3606052732524127399, guid: 67e776af27d274a0fa3aa07afaf8fa7b,
         type: 3}
+      propertyPath: monster
+      value: 
+      objectReference: {fileID: 498253721416304272, guid: f6ab88624626d1249bd73bcb4a1c7d59,
+        type: 3}
+    - target: {fileID: 3606052732524127399, guid: 67e776af27d274a0fa3aa07afaf8fa7b,
+        type: 3}
       propertyPath: maxEnemyAmount
       value: 3
       objectReference: {fileID: 0}
@@ -23988,6 +24012,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3606052732524127399, guid: 67e776af27d274a0fa3aa07afaf8fa7b,
+        type: 3}
+      propertyPath: monster
+      value: 
+      objectReference: {fileID: 498253721416304272, guid: f6ab88624626d1249bd73bcb4a1c7d59,
+        type: 3}
     - target: {fileID: 3606052732524127399, guid: 67e776af27d274a0fa3aa07afaf8fa7b,
         type: 3}
       propertyPath: maxEnemyAmount
@@ -26777,6 +26807,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3606052732524127399, guid: 67e776af27d274a0fa3aa07afaf8fa7b,
         type: 3}
+      propertyPath: monster
+      value: 
+      objectReference: {fileID: 498253721416304272, guid: f6ab88624626d1249bd73bcb4a1c7d59,
+        type: 3}
+    - target: {fileID: 3606052732524127399, guid: 67e776af27d274a0fa3aa07afaf8fa7b,
+        type: 3}
       propertyPath: maxEnemyAmount
       value: 3
       objectReference: {fileID: 0}
@@ -29251,6 +29287,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3606052732524127399, guid: 67e776af27d274a0fa3aa07afaf8fa7b,
+        type: 3}
+      propertyPath: monster
+      value: 
+      objectReference: {fileID: 498253721416304272, guid: f6ab88624626d1249bd73bcb4a1c7d59,
+        type: 3}
     - target: {fileID: 3606052732524127399, guid: 67e776af27d274a0fa3aa07afaf8fa7b,
         type: 3}
       propertyPath: maxEnemyAmount

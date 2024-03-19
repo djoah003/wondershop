@@ -8,7 +8,8 @@ public class ShadowMonsterSpawner : MonoBehaviour
     [SerializeField] private GameObject monster;
     [SerializeField] private List<GameObject> monstersList = new List<GameObject>();
     [SerializeField] private int maxEnemyAmount = 2;
-    private List<GameObject> players = new List<GameObject>();
+    public List<GameObject> players = new List<GameObject>();
+    private bool init = false;
     private Vector3 pos => gameObject.transform.position;
 
     private GameObject ClosestPlayer()
@@ -33,7 +34,8 @@ public class ShadowMonsterSpawner : MonoBehaviour
         yield return new WaitForSeconds(Random.Range(10f, 60f));
         // TODO: Enemy gets instantiated with index and once died it deletes itself from the list.
         // Check if there's space to spawn a new monster
-        if (monstersList.Count < maxEnemyAmount)
+        if (monstersList.Count < maxEnemyAmount && 
+            Vector3.Distance(ClosestPlayer().transform.position, gameObject.transform.position) > 5f)
         {
             // Spawn a new monster and add it to the list
             GameObject newMonster = Instantiate(monster, gameObject.transform);
@@ -45,15 +47,22 @@ public class ShadowMonsterSpawner : MonoBehaviour
                 monstersList.RemoveAt(i);
         // Re-run coroutine
         StartCoroutine(MonsterSpawning());
+    }
+
+    IEnumerator Init()
+    {
+        yield return new WaitForSeconds(15f);
         
+        foreach (var player in GameObject.FindGameObjectsWithTag("Avatar"))
+            players.Add(player);
+        
+        // if no players found, re-run init.
+        StartCoroutine(players.Count < 1 ? Init() : MonsterSpawning());
     }
     // Start is called before the first frame update
     void Start()
     {
-        foreach (var player in GameObject.FindGameObjectsWithTag("Player"))
-            players.Add(player);
-
-        StartCoroutine(MonsterSpawning());
+        StartCoroutine(Init());
     }
 
     // Update is called once per frame

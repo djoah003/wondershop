@@ -11,11 +11,13 @@ public class Pickaxe : MonoBehaviour
 
     
     [Header("Rock Data")]
+    [SerializeField]
     private bool inRockRange;
     [SerializeField]
     private GameObject closestRock;
     [SerializeField] private GameObject gold;
-
+    
+    [SerializeField] GameObject canvas;
     private bool isHeldDown = false;
 
     
@@ -49,12 +51,15 @@ public class Pickaxe : MonoBehaviour
         if(inRockRange)
         {
             Debug.Log("Hit Rock");
+            canvas.SetActive(true);
             //this.transform.root.transform.position = closestRock.transform.position;
             startMiningTimer(value);
         }
         else
         {
             mineValue = 0;
+            canvas.SetActive(false);
+
         }
         
     }
@@ -66,14 +71,12 @@ public class Pickaxe : MonoBehaviour
         {
             StopCoroutine(LetGoTimer());
 
-            Debug.Log("mining");
             RockSlider();
             
             StartCoroutine(LetGoTimer());
         }
         else
         {
-            Debug.Log("chilling");
         }
     }
 
@@ -108,15 +111,16 @@ public class Pickaxe : MonoBehaviour
         if(mineValue >= 100f)
         {
             closestRock.GetComponent<Rock>().DropRock();
+            inRockRange = false;
             mineValue = 0;
+            
         }
     }
    
-    void OnTriggerEnter(Collider other)
+    void OnTriggerStay(Collider other)
     {
         if(other.CompareTag("rock"))
         {
-            Debug.Log("Enter");
             inRockRange = true;
             closestRock = other.gameObject;
         }
@@ -128,6 +132,7 @@ public class Pickaxe : MonoBehaviour
         {
             Debug.Log("Exit");
             inRockRange = false;
+            canvas.SetActive(false);
             closestRock = null;
             mineValue = 0;
         }
@@ -137,6 +142,7 @@ public class Pickaxe : MonoBehaviour
     private void DropItem()
     {
         GameObject collectableDrop = Instantiate(collectable, new Vector3(transform.position.x + 2, transform.position.y + 5f, transform.position.z), transform.rotation);
+        collectableDrop.GetComponent<Rigidbody>().AddForce(-1f,1f,0f);
         //collectableDrop.GetComponent<Rigidbody>().AddForce(transform.right, ForceMode.Force);
     }
 }

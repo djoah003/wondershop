@@ -10,6 +10,7 @@ public class Bucket : MonoBehaviour
    private int currentGold;
    [SerializeField]
    private int maxGold = 5;
+   [SerializeField] List<GameObject> gems = new List<GameObject>();
 
 
    [Header("Collectible Drop")]
@@ -29,6 +30,7 @@ public class Bucket : MonoBehaviour
             {
                 Destroy(other);
                 currentGold++;
+                gems[currentGold - 1].SetActive(true);
             }
         }
         
@@ -48,7 +50,7 @@ public class Bucket : MonoBehaviour
         {
             GameObject collectableGold = Instantiate(gold, new Vector3(transform.position.x, transform.position.y + 0.2f, transform.position.z), transform.rotation);
             collectableGold.GetComponent<Rigidbody>().AddForce(transform.up, ForceMode.Impulse);
-
+            gems[i].SetActive(false);
         }
     }
 

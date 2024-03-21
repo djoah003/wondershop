@@ -32,6 +32,10 @@ public class Bucket : MonoBehaviour
                 currentGold++;
                 gems[currentGold - 1].SetActive(true);
             }
+            else if(other.CompareTag("dropoff"))
+            {
+                DropGold();
+            }
         }
         
     }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class Bucket : MonoBehaviour
 {
@@ -32,11 +33,13 @@ public class Bucket : MonoBehaviour
                 currentGold++;
                 gems[currentGold - 1].SetActive(true);
             }
-            else if(other.CompareTag("dropoff"))
-            {
-                DropGold();
-            }
+           
         }
+        Debug.Log(other.name);
+        if(other.CompareTag("dropoff") && currentGold > 0)
+            {
+               
+            }
         
     }
 
@@ -58,6 +61,19 @@ public class Bucket : MonoBehaviour
         }
     }
 
-   
+    private void DropAtBase()
+    {
+        Debug.Log("Found Dropoff");
+        if(currentGold > 0)
+        {
+            ScoreManager.IncreaseScore(currentGold);
+            for(int i =0; i < currentGold; i++)
+            {
+                gems[i].SetActive(false);
+            }
+            currentGold = 0;
+        }
+        
+    }
    
 }

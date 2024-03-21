@@ -148,6 +148,11 @@ public class DemoGameplayState : GameState
 					Destroy(collision);
 				}
 			}
+
+			if(collision.CompareTag("dropoff"))
+			{
+				player.BroadcastMessage("DropAtBase");
+			}
 		
 		
 		

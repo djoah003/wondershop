@@ -123,36 +123,45 @@ public class DemoGameplayState : GameState
 				
 				colliderEvent.That.GetComponentInParent<Avatar>().Deject(currentBehavior);
 				
+				
 				if(collision.CompareTag("pickaxe"))
 				{
 					Debug.Log("Found Pickaxe");
-					HoldItem(player,pickaxeBehaviour);
+					HoldItem(player,pickaxeBehaviour,collision);
 				}
 				else if(collision.CompareTag("torch"))
 				{
 					Debug.Log("Found Torch");
-					HoldItem(player,torchBehaviour);
+					HoldItem(player,torchBehaviour,collision);
 					
 				}
 				else if(collision.CompareTag("bag"))
 				{
 					Debug.Log("Found Bag");
-					HoldItem(player,bagBehaviour);
+					HoldItem(player,bagBehaviour,collision);
 				}
 
 				player.GetComponentInParent<Avatar>().Inject(currentBehavior);
 
-			
-				Destroy(collision);
+				if(collision.GetComponent<StartingCollectable>() == null)
+				{
+					Destroy(collision);
+				}
 			}
 		
 		
 		
 		if(collision.layer == LayerMask.NameToLayer("ShadowMonster"))
 		{
-			player.BroadcastMessage("DropItem");
+			//player.BroadcastMessage("DropItem");
 			
-			player.GetComponentInParent<Avatar>().Deject(currentBehavior);
+			//player.GetComponentInParent<Avatar>().Deject(currentBehavior);
+			Debug.Log("Added Rb");
+			//if(player.GetComponent(Rigidbody!))
+			Vector3 moveDirection = player.transform.position - collision.transform.position;
+			Rigidbody rb = player.AddComponent<Rigidbody>();
+        	rb.AddForce( moveDirection.normalized * -1f, ForceMode.Impulse);
+			Destroy(player.GetComponent<Rigidbody>());
 			StartCoroutine(FreezePlayer(player));
 
 		}
@@ -228,12 +237,20 @@ public class DemoGameplayState : GameState
 		LockPlayer(avatar,false);
     }
 
-	private void HoldItem(GameObject player, GameObject newBehaviour)
+	private void HoldItem(GameObject player, GameObject newBehaviour, GameObject collectible)
 	{
 		itemHeld = false;
-		player.BroadcastMessage("DropItem");
-		currentBehavior = newBehaviour;
-		itemHeld = true;
+		if(collectible.GetComponent<StartingCollectable>() != null)
+		{
+			currentBehavior = newBehaviour;
+			itemHeld = true;
+		}
+		else{
+			player.BroadcastMessage("DropItem");
+			currentBehavior = newBehaviour;
+			itemHeld = true;
+		}
+		
 	}
 
 }

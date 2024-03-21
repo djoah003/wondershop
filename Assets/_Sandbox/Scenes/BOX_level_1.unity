@@ -30693,6 +30693,7 @@ GameObject:
   m_Component:
   - component: {fileID: 313087530823242004}
   - component: {fileID: 6588653037634468108}
+  - component: {fileID: 6588653037634468109}
   m_Layer: 6
   m_Name: Pickaxe_Collectable
   m_TagString: pickaxe
@@ -30710,6 +30711,7 @@ GameObject:
   m_Component:
   - component: {fileID: 313087530494323016}
   - component: {fileID: 6130498559474761790}
+  - component: {fileID: 6130498559474761791}
   m_Layer: 6
   m_Name: Bag_Collectable
   m_TagString: bag
@@ -30727,6 +30729,7 @@ GameObject:
   m_Component:
   - component: {fileID: 313087530413443714}
   - component: {fileID: 4899250196198569812}
+  - component: {fileID: 4899250196198569813}
   m_Layer: 6
   m_Name: Torch_Collectable
   m_TagString: torch
@@ -30824,12 +30827,24 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Radius: 0.1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4899250196198569813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4465806906299828115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f901a959f31eb645a63dae49a0911cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &5006852992544510342
 Transform:
   m_ObjectHideFlags: 3
@@ -31155,12 +31170,24 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Radius: 0.3
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6130498559474761791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4465806906244392025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f901a959f31eb645a63dae49a0911cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6352578286308665214
 GameObject:
   m_ObjectHideFlags: 0
@@ -31194,12 +31221,24 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Radius: 0.1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6588653037634468109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4465806904576957445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f901a959f31eb645a63dae49a0911cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &6605734536515479157
 Transform:
   m_ObjectHideFlags: 0

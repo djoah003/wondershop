@@ -91,7 +91,7 @@ public class ShadowMonster : MonoBehaviour
     {
         navMeshAI.SetDestination(dropOffPoint.position);
 
-        if (navMeshAI.remainingDistance >= 4)
+        if (navMeshAI.remainingDistance >= 2)
         {
             isReturningPlayer = true;
             ClosestPlayer().transform.position = transform.position + transform.forward.normalized;
@@ -119,7 +119,7 @@ public class ShadowMonster : MonoBehaviour
     {
         if (isRunningAway)
             RunAway();
-        else if (distanceToClosest <= 1f && !isRunningAway)
+        else if (distanceToClosest <= 1.5f && !isRunningAway)
         {
             ReturnPlayer();
         }

@@ -1,6 +1,7 @@
 using System.Collections;
 using Cinemachine;
 using UnityEngine;
+using UnityEngine.AI;
 
 /***
  * You gamestate logic goes here. There are events coming from the ScriptableEvents and the
@@ -37,15 +38,10 @@ public class DemoGameplayState : GameState
 	 *
 	 */
 	// example of some game specific helpers
-	private static void LockPlayer(GameObject avatar, bool value = true) {
+	internal void LockPlayer(GameObject avatar, bool value = true) {
 		foreach (AvatarBehaviour behaviour in avatar.GetComponents<AvatarBehaviour>()) behaviour.SetActive(!value);
 	}
-
-	private static void UnlockPlayer(GameObject avatar, bool value = true) {
-		foreach (AvatarBehaviour behaviour in avatar.GetComponents<AvatarBehaviour>()) behaviour.SetActive(value);
-	}
-
-
+	
 	/**
 	 * Custom life-cycle
 	 *
@@ -77,8 +73,6 @@ public class DemoGameplayState : GameState
 		
 		player.GetComponent<Avatar>().Inject(normalBehavior);
 		Debug.Log("Player Name: " + player.name);
-
-		
 		_cameraTargetGroup.AddMember(player.transform.GetChild(0), 1f, 1f);
 	}
 
@@ -121,8 +115,7 @@ public class DemoGameplayState : GameState
 			if(collision.layer == LayerMask.NameToLayer("Item"))
 			{
 				
-				colliderEvent.That.GetComponentInParent<Avatar>().Deject(currentBehavior);
-				
+				player.GetComponentInParent<Avatar>().Deject(currentBehavior);
 				
 				if(collision.CompareTag("pickaxe"))
 				{
@@ -133,17 +126,18 @@ public class DemoGameplayState : GameState
 				{
 					Debug.Log("Found Torch");
 					HoldItem(player,torchBehaviour,collision);
-					
 				}
 				else if(collision.CompareTag("bag"))
 				{
 					Debug.Log("Found Bag");
 					HoldItem(player,bagBehaviour,collision);
 				}
-
+				
 				player.GetComponentInParent<Avatar>().Inject(currentBehavior);
 
-				if(collision.GetComponent<StartingCollectable>() == null)
+				
+
+				if(collision.GetComponent<StartingCollectable>() == null && !collision.CompareTag("ShadowMonster"))
 				{
 					Destroy(collision);
 				}
@@ -156,21 +150,23 @@ public class DemoGameplayState : GameState
 		
 		
 		
-		if(collision.layer == LayerMask.NameToLayer("ShadowMonster"))
-		{
-			//player.BroadcastMessage("DropItem");
-			
-			//player.GetComponentInParent<Avatar>().Deject(currentBehavior);
-			Debug.Log("Added Rb");
-			//if(player.GetComponent(Rigidbody!))
-			Vector3 moveDirection = player.transform.position - collision.transform.position;
-			Rigidbody rb = player.AddComponent<Rigidbody>();
-        	rb.AddForce( moveDirection.normalized * -1f, ForceMode.Impulse);
-			Destroy(player.GetComponent<Rigidbody>());
-			StartCoroutine(FreezePlayer(player));
-
-		}
+		// if(collision.layer == LayerMask.NameToLayer("ShadowMonster"))
+		// {
+		// 	//player.BroadcastMessage("DropItem");
+		// 	
+		// 	//player.GetComponentInParent<Avatar>().Deject(currentBehavior);
+		// 	Debug.Log("Added Rb");
+		// 	//if(player.GetComponent(Rigidbody!))
+		// 	Vector3 moveDirection = player.transform.position - collision.transform.position;
+		// 	Rigidbody rb = player.AddComponent<Rigidbody>();
+  //       	rb.AddForce( moveDirection.normalized * -1f, ForceMode.Impulse);
+		// 	Destroy(player.GetComponent<Rigidbody>());
+		// 	StartCoroutine(FreezePlayer(player));
+	 //
+		// }
 	}
+	
+
 
 	/**
 	 * Triggers
@@ -233,14 +229,6 @@ public class DemoGameplayState : GameState
 		player.transform.parent.BroadcastMessage("HoldActionButton", true);
 		//player.transform.parent.BroadcastMessage("pressedTrue");
 	}
-
-	 private IEnumerator FreezePlayer(GameObject avatar)
-    {
-		LockPlayer(avatar,true);
-		itemHeld = false;
-        yield return new WaitForSeconds(3f);
-		LockPlayer(avatar,false);
-    }
 
 	private void HoldItem(GameObject player, GameObject newBehaviour, GameObject collectible)
 	{

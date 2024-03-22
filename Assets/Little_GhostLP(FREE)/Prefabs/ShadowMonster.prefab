@@ -555,7 +555,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   monsterHealth: 15
   players: []
-  damageThresh: 10
+  damageThresh: 1
+  dropOffPoint: {fileID: 0}
 --- !u!1 &498253721421649741
 GameObject:
   m_ObjectHideFlags: 0

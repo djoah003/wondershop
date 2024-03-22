@@ -755,6 +755,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Character_Dummy_Male_01
       objectReference: {fileID: 0}
+    - target: {fileID: 2151131426784420388, guid: dc494f42aedd60c4a85be02ec2b22ec4,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2519105373319650416, guid: dc494f42aedd60c4a85be02ec2b22ec4,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 8135987356180352395, guid: dc494f42aedd60c4a85be02ec2b22ec4, type: 3}
